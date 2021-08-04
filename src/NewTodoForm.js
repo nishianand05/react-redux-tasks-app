@@ -31,8 +31,9 @@ class NewTodoForm extends Component {
 					type="text" 
 					name="task" 
 					id="task"
+					placeholder="Add a task"
 					onChange={this.handleChange}/>
-				<button>+</button>
+				<button><i class="fas fa-plus"></i></button>
 			</form>
 		)
 	}
