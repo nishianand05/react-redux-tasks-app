@@ -4,10 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import {createStore, applyMiddleware, compose} from 'redux';
+import rootReducer from './rootReducer';
+import {Provider} from 'react-redux'; //To connect react and redux
+import {BrowserRouter} from "react-router-dom";
+import thunk from 'redux-thunk'; //Write action creators which return functions instead of actions. Delays dispatch of action.
+
+const store = createStore(rootReducer, compose(applyMiddleware(thunk)));
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+		<BrowserRouter><App /></BrowserRouter>
+	</Provider>,
   document.getElementById('root')
 );
 
